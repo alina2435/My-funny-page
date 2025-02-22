@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра с убегающей кнопкой</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #FF5733;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="question">Оплати шейн пж</div>
+    <div class="buttons">
+        <button class="yes" onclick="alert('Да, спасибо!')">Да</button>
+        <button class="no" onmouseover="moveButton()">Нет</button>
+    </div>
+
+    <script>
+        function moveButton() {
+            let button = document.querySelector('.no');
+            let maxWidth = window.innerWidth - 100; // Учитываем ширину окна
+            let maxHeight = window.innerHeight - 100; // Учитываем высоту окна
+            
+            let newX = Math.random() * maxWidth;
+            let newY = Math.random() * maxHeight;
+            
+            button.style.left = newX + 'px';
+            button.style.top = newY + 'px';
+        }
+    </script>
+
+</body>
+</html>
